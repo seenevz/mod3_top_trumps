@@ -75,3 +75,365 @@ Migrating to CreateGames (20190211150648)
   [1m[36mGame Create (2.6ms)[0m  [1m[32mINSERT INTO "games" ("player_one_id", "player_two_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["player_one_id", 1], ["player_two_id", 2], ["created_at", "2019-02-11 15:40:12.355931"], ["updated_at", "2019-02-11 15:40:12.355931"]]
   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT  "games".* FROM "games" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (168.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_top_trumps_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (158.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_top_trumps_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (531.3ms)[0m  [1m[35mCREATE DATABASE "backend_top_trumps_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (354.4ms)[0m  [1m[35mCREATE DATABASE "backend_top_trumps_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2968924216803968010)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190211145920)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190211145920_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190211145920"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCards (20190211150527)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "name" character varying, "description" character varying, "url" character varying, "attribute_1" integer, "attribute_2" integer, "attribute_3" integer, "attribute_4" integer, "attribute_5" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190211150527_create_cards.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190211150527"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateGames (20190211150648)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "player_one_id" integer, "player_two_id" integer, "winner_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190211150648_create_games.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190211150648"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-02-11 17:25:11.809718"], ["updated_at", "2019-02-11 17:25:11.809718"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2968924216803968010)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mCard Create (4.8ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Theresa May"], ["description", "Chuck Norris' beard is immutable."], ["url", "https://timedotcom.files.wordpress.com/2019/02/theresa-may-brexit.jpg"], ["attribute_1", 60], ["attribute_2", 72], ["attribute_3", 91], ["attribute_4", 16], ["attribute_5", 9], ["created_at", "2019-02-11 17:44:44.944166"], ["updated_at", "2019-02-11 17:44:44.944166"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Donald Trump"], ["description", "Chuck Norris knows the last digit of PI."], ["url", "https://shawglobalnews.files.wordpress.com/2019/02/20508990.jpg"], ["attribute_1", 72], ["attribute_2", 79], ["attribute_3", 99], ["attribute_4", 82], ["attribute_5", 96], ["created_at", "2019-02-11 17:44:44.952224"], ["updated_at", "2019-02-11 17:44:44.952224"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Vladimir Putin"], ["description", "\"It works on my machine\" always holds true for Chuck Norris."], ["url", "https://images-na.ssl-images-amazon.com/images/I/61QgIYCeCvL._SX355_.jpg"], ["attribute_1", 7], ["attribute_2", 26], ["attribute_3", 50], ["attribute_4", 81], ["attribute_5", 10], ["created_at", "2019-02-11 17:44:44.955346"], ["updated_at", "2019-02-11 17:44:44.955346"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Kim Jong Un"], ["description", "You don't disable the Chuck Norris plug-in, it disables you."], ["url", "https://static-news.moneycontrol.com/static-mcnews/2018/01/Kim-Jong-UN_North-Korea-770x433.jpg"], ["attribute_1", 93], ["attribute_2", 91], ["attribute_3", 75], ["attribute_4", 15], ["attribute_5", 86], ["created_at", "2019-02-11 17:44:44.958174"], ["updated_at", "2019-02-11 17:44:44.958174"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Marcelo Rebelo de Sousa"], ["description", "\"It works on my machine\" always holds true for Chuck Norris."], ["url", "http://portuguese-american-journal.com/wp-content/uploads/2016/03/123PRESIDENT.jpg"], ["attribute_1", 55], ["attribute_2", 96], ["attribute_3", 29], ["attribute_4", 61], ["attribute_5", 71], ["created_at", "2019-02-11 17:44:44.960672"], ["updated_at", "2019-02-11 17:44:44.960672"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Claude junker"], ["description", "Chuck Norris doesn't need to know about class factory pattern. He can instantiate interfaces."], ["url", "https://guengl-panamapapers.eu/wp-content/uploads/2017/01/Jean-Claude-Juncker-012.jpg"], ["attribute_1", 32], ["attribute_2", 34], ["attribute_3", 74], ["attribute_4", 19], ["attribute_5", 81], ["created_at", "2019-02-11 17:44:44.963262"], ["updated_at", "2019-02-11 17:44:44.963262"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Justin Trudeau"], ["description", "When Chuck Norris gives a method an argument, the method loses."], ["url", "https://www.cbc.ca/kidscbc2/content/the_feed/presvspm_trudeau-min.jpg"], ["attribute_1", 56], ["attribute_2", 35], ["attribute_3", 3], ["attribute_4", 98], ["attribute_5", 84], ["created_at", "2019-02-11 17:44:44.965979"], ["updated_at", "2019-02-11 17:44:44.965979"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Angela Merkl"], ["description", "Chuck Norris can write multi-threaded applications with a single thread."], ["url", "https://timedotcom.files.wordpress.com/2017/11/distracted-angela-merkel-bad-for-world.jpg"], ["attribute_1", 97], ["attribute_2", 64], ["attribute_3", 43], ["attribute_4", 100], ["attribute_5", 77], ["created_at", "2019-02-11 17:44:44.968716"], ["updated_at", "2019-02-11 17:44:44.968716"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Muhammad Ubuhari"], ["description", "Chuck Norris can divide by zero."], ["url", "http://cs.mg.co.za/crop/content/images/2016/03/03/ipadnigerianpresidentmuhammadubuhari.jpg/800x450/"], ["attribute_1", 14], ["attribute_2", 86], ["attribute_3", 5], ["attribute_4", 95], ["attribute_5", 2], ["created_at", "2019-02-11 17:44:44.971311"], ["updated_at", "2019-02-11 17:44:44.971311"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Malcom Turbull"], ["description", "The programs that Chuck Norris writes don't have version numbers because he only writes them once. If a user reports a bug or has a feature request they don't live to see the sun set."], ["url", "https://images.reference.com/reference-production-images/question/aq/president-australia_27da094c732dd7f2.jpg"], ["attribute_1", 87], ["attribute_2", 82], ["attribute_3", 80], ["attribute_4", 96], ["attribute_5", 39], ["created_at", "2019-02-11 17:44:44.974062"], ["updated_at", "2019-02-11 17:44:44.974062"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2019-02-11 17:51:51 +0000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Carlyne/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/Carlyne/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Carlyne/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (6.7ms)
+Completed 200 OK in 21ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-11 17:51:57 +0000
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (1.0ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.88ms)
+Completed 200 OK in 75ms (Views: 59.8ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-02-11 17:59:36 +0000
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Carlyne/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 404 Not Found in 28ms (Views: 8.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-02-11 17:59:38 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.18ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.6ms)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mCard Create (1.1ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Theresa May"], ["description", "Chuck Norris burst the dot com bubble."], ["url", "https://timedotcom.files.wordpress.com/2019/02/theresa-may-brexit.jpg"], ["attribute_1", 79], ["attribute_2", 10], ["attribute_3", 61], ["attribute_4", 81], ["attribute_5", 89], ["created_at", "2019-02-11 18:01:57.074962"], ["updated_at", "2019-02-11 18:01:57.074962"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Donald Trump"], ["description", "When a bug sees Chuck Norris, it flees screaming in terror, and then immediately self-destructs to avoid being roundhouse-kicked."], ["url", "https://shawglobalnews.files.wordpress.com/2019/02/20508990.jpg"], ["attribute_1", 8], ["attribute_2", 29], ["attribute_3", 94], ["attribute_4", 36], ["attribute_5", 89], ["created_at", "2019-02-11 18:01:57.080176"], ["updated_at", "2019-02-11 18:01:57.080176"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Vladimir Putin"], ["description", "Chuck Norris can divide by zero."], ["url", "https://images-na.ssl-images-amazon.com/images/I/61QgIYCeCvL._SX355_.jpg"], ["attribute_1", 81], ["attribute_2", 34], ["attribute_3", 50], ["attribute_4", 39], ["attribute_5", 18], ["created_at", "2019-02-11 18:01:57.083005"], ["updated_at", "2019-02-11 18:01:57.083005"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Kim Jong Un"], ["description", "When Chuck Norris points to null, null quakes in fear."], ["url", "https://static-news.moneycontrol.com/static-mcnews/2018/01/Kim-Jong-UN_North-Korea-770x433.jpg"], ["attribute_1", 5], ["attribute_2", 70], ["attribute_3", 27], ["attribute_4", 62], ["attribute_5", 27], ["created_at", "2019-02-11 18:01:57.086099"], ["updated_at", "2019-02-11 18:01:57.086099"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Marcelo Rebelo de Sousa"], ["description", "Chuck Norris can spawn threads that complete before they are started."], ["url", "http://portuguese-american-journal.com/wp-content/uploads/2016/03/123PRESIDENT.jpg"], ["attribute_1", 51], ["attribute_2", 85], ["attribute_3", 27], ["attribute_4", 31], ["attribute_5", 35], ["created_at", "2019-02-11 18:01:57.088753"], ["updated_at", "2019-02-11 18:01:57.088753"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Claude junker"], ["description", "There is no need to try catching Chuck Norris' exceptions for recovery; every single throw he does is fatal."], ["url", "https://guengl-panamapapers.eu/wp-content/uploads/2017/01/Jean-Claude-Juncker-012.jpg"], ["attribute_1", 11], ["attribute_2", 89], ["attribute_3", 93], ["attribute_4", 80], ["attribute_5", 98], ["created_at", "2019-02-11 18:01:57.091389"], ["updated_at", "2019-02-11 18:01:57.091389"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Justin Trudeau"], ["description", "Chuck Norris doesn't delete files, he blows them away."], ["url", "https://www.cbc.ca/kidscbc2/content/the_feed/presvspm_trudeau-min.jpg"], ["attribute_1", 41], ["attribute_2", 1], ["attribute_3", 44], ["attribute_4", 24], ["attribute_5", 92], ["created_at", "2019-02-11 18:01:57.094082"], ["updated_at", "2019-02-11 18:01:57.094082"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Angela Merkl"], ["description", "When Chuck Norris' code fails to compile the compiler apologises."], ["url", "https://timedotcom.files.wordpress.com/2017/11/distracted-angela-merkel-bad-for-world.jpg"], ["attribute_1", 48], ["attribute_2", 5], ["attribute_3", 7], ["attribute_4", 4], ["attribute_5", 19], ["created_at", "2019-02-11 18:01:57.098656"], ["updated_at", "2019-02-11 18:01:57.098656"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Muhammad Ubuhari"], ["description", "When Chuck Norris points to null, null quakes in fear."], ["url", "http://cs.mg.co.za/crop/content/images/2016/03/03/ipadnigerianpresidentmuhammadubuhari.jpg/800x450/"], ["attribute_1", 20], ["attribute_2", 90], ["attribute_3", 78], ["attribute_4", 35], ["attribute_5", 14], ["created_at", "2019-02-11 18:01:57.101608"], ["updated_at", "2019-02-11 18:01:57.101608"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("name", "description", "url", "attribute_1", "attribute_2", "attribute_3", "attribute_4", "attribute_5", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Malcom Turbull"], ["description", "Chuck Norris doesn't need a debugger, he just stares down the bug until the code confesses."], ["url", "https://images.reference.com/reference-production-images/question/aq/president-australia_27da094c732dd7f2.jpg"], ["attribute_1", 83], ["attribute_2", 37], ["attribute_3", 64], ["attribute_4", 2], ["attribute_5", 18], ["created_at", "2019-02-11 18:01:57.104325"], ["updated_at", "2019-02-11 18:01:57.104325"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (2.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Kev"], ["created_at", "2019-02-11 18:01:57.123419"], ["updated_at", "2019-02-11 18:01:57.123419"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Serg"], ["created_at", "2019-02-11 18:01:57.128445"], ["updated_at", "2019-02-11 18:01:57.128445"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Mani"], ["created_at", "2019-02-11 18:01:57.130860"], ["updated_at", "2019-02-11 18:01:57.130860"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "George"], ["created_at", "2019-02-11 18:01:57.133286"], ["updated_at", "2019-02-11 18:01:57.133286"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+Started GET "/users" for 127.0.0.1 at 2019-02-11 18:02:02 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+No serializer found for resource: #<User id: 1, name: "Kev", created_at: "2019-02-11 18:01:57", updated_at: "2019-02-11 18:01:57">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with User::ActiveRecord_Relation (1.05ms)
+Completed 200 OK in 52ms (Views: 44.1ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-02-11 18:03:12 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.41ms)
+Completed 200 OK in 28ms (Views: 8.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-02-11 18:03:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.49ms)
+Completed 200 OK in 34ms (Views: 10.2ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-02-11 18:03:44 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.37ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2019-02-11 18:03:48 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.61ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2019-02-11 18:03:55 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.77ms)
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-02-11 18:05:23 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+No serializer found for resource: #<User id: 1, name: "Kev", created_at: "2019-02-11 18:01:57", updated_at: "2019-02-11 18:01:57">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with User::ActiveRecord_Relation (2.48ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-11 18:05:33 +0000
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for GamesController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'

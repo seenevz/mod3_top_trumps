@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_150648) do
   create_table "cards", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "url"
     t.integer "attribute_1"
     t.integer "attribute_2"
     t.integer "attribute_3"
