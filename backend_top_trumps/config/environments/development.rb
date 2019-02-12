@@ -44,6 +44,12 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  # ActionCable configuration
+
+  # ActionCable.server.config.allowed_request_origins = ['*']
+  config.action_cable.disable_request_forgery_protection = true
+  config.action_cable.url = "http://localhost:3000/game"
+
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
