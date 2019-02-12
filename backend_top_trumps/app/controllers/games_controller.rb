@@ -3,13 +3,15 @@ class GamesController < ApplicationController
         @game = Game.new()        
     end
 
-    def random
+    def random(pool = Card.all)
         @random = []
-        pool = Card.all.to_ary
-
-        byebug
+        pool_ids = pool.map{|x| x.id}
+        # pool = Card.all.to_ary
+        
+        # byebug
         5.times do 
-            @random << (pool.fetch(rand(0..pool.length)))
+            id = pool_ids.slice!(rand(0..pool_ids.length))
+            @random << (pool.find_by(id: id))
         end
 
         render json: @random

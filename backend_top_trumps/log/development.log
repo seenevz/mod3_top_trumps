@@ -1295,3 +1295,201 @@ Processing by GamesController#random as HTML
 Completed 200 OK in 1247ms (Views: 18.9ms | ActiveRecord: 7.9ms)
 
 
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:00:00 +0000
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Carlyne/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (1.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.67ms)
+Completed 200 OK in 7113ms (Views: 16.9ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:00:08 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (1.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.4ms)
+Completed 200 OK in 1482ms (Views: 2.7ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:00:51 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.69ms)
+Completed 200 OK in 9395ms (Views: 11.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:01:07 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.6ms)
+Completed 200 OK in 43ms (Views: 4.2ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:01:10 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.28ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:01:20 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.9ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.08ms)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:09:55 +0000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Carlyne/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:8
+  [1m[36mCard Load (2.8ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" BETWEEN $1 AND $2 LIMIT $3[0m  [["id", 0], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCACHE Card Load (0.0ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" BETWEEN $1 AND $2 LIMIT $3[0m  [["id", 0], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCACHE Card Load (0.0ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" BETWEEN $1 AND $2 LIMIT $3[0m  [["id", 0], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCACHE Card Load (0.0ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" BETWEEN $1 AND $2 LIMIT $3[0m  [["id", 0], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCACHE Card Load (0.0ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" BETWEEN $1 AND $2 LIMIT $3[0m  [["id", 0], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.29ms)
+Completed 200 OK in 69ms (Views: 13.2ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:10:36 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:8
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 12.1ms)
+
+
+  
+IndexError (index 1 outside of array bounds: -1...1):
+  
+app/controllers/games_controller.rb:13:in `fetch'
+app/controllers/games_controller.rb:13:in `block in random'
+app/controllers/games_controller.rb:12:in `times'
+app/controllers/games_controller.rb:12:in `random'
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:13:17 +0000
+  
+SyntaxError (/Users/Carlyne/Development/code/Project/mod3_project/mod3_top_trumps/backend_top_trumps/app/controllers/games_controller.rb:8: syntax error, unexpected '|', expecting ')'
+        pool_ids = pool.map(|x| x.id)
+                             ^
+/Users/Carlyne/Development/code/Project/mod3_project/mod3_top_trumps/backend_top_trumps/app/controllers/games_controller.rb:8: syntax error, unexpected ')', expecting keyword_end):
+  
+app/controllers/games_controller.rb:8: syntax error, unexpected '|', expecting ')'
+app/controllers/games_controller.rb:8: syntax error, unexpected ')', expecting keyword_end
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:14:08 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:8
+Completed 500 Internal Server Error in 372462ms (ActiveRecord: 11.3ms)
+
+
+  
+IndexError (index 20 outside of array bounds: -20...20):
+  
+app/controllers/games_controller.rb:13:in `fetch'
+app/controllers/games_controller.rb:13:in `block in random'
+app/controllers/games_controller.rb:12:in `times'
+app/controllers/games_controller.rb:12:in `random'
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:20:23 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:8
+  [1m[36mCard Load (1.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (2.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (1.7ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+No serializer found for resource: nil
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (3.57ms)
+Completed 200 OK in 74885ms (Views: 12.2ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:21:48 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (1.9ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:8
+  [1m[36mCard Load (1.0ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.03ms)
+Completed 200 OK in 49ms (Views: 2.7ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:21:54 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:8
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.9ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.93ms)
+Completed 200 OK in 17ms (Views: 1.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:21:56 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:8
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.15ms)
+Completed 200 OK in 13ms (Views: 2.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2019-02-12 15:21:59 +0000
+Processing by GamesController#random as HTML
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/games_controller.rb:8
+  [1m[36mCard Load (0.9ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:14
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.12ms)
+Completed 200 OK in 16ms (Views: 1.9ms | ActiveRecord: 3.9ms)
+
+
