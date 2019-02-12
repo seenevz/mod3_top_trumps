@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :cards, only: [:index, :show]
   resources :users, only: [:index, :show, :create]
   resources :games, only: [:index, :show, :create]
+
+  get 'random', to: 'games#random', as: 'random_path'
 end
