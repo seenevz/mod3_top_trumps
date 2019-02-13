@@ -54,3 +54,35 @@ html {
     opacity: 0.5;
   }
   
+  .add-toy-form {
+    width: 80%
+  }
+
+  .input-text {
+    border-radius: 5px;
+    height: 2rem;
+    width: 60%;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin: 3px;
+  }
+
+  .submit {
+    position: relative;
+    background-color: #040f31;
+    border-radius: 5px;
+    height: 2.5rem;
+    width: max-content;
+    color: whitesmoke;
+    font-size: 16px;
+    justify-self: center;
+    font-family: sans-serif;
+    margin: 3px;
+  }
+  
+  .submit:hover {
+    background-color: whitesmoke;
+    border: #331c70 solid 1px;
+    color: #331c70;
+  }
+  
