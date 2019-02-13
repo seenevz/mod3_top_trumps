@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create]
   resources :games, only: [:index, :show, :create]
 
-  get 'random', to: 'games#random', as: 'random_path'
+  get 'random', to: 'games#random' 
+  get 'round', to: 'games#round_result'
 end
