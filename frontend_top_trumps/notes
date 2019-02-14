@@ -1,0 +1,12 @@
+cards2 = [{
+    id: 2,
+    name: "Donald Trump",
+    description: "Chuck Norris rewrote the Google search engine from scratch.",
+    url: "https://shawglobalnews.files.wordpress.com/2019/02/20508990.jpg",
+        attributes: [{attribute_1: 20},
+    {attribute_2: 53},
+    {attribute_3: 55},
+    {attribute_4: 8},
+    {attribute_5: 24}]
+    }
+]
