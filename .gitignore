@@ -1,6 +1,6 @@
-*.rbc
-capybara-*.html
-.rspec
+backend_top_trumps/*.rbc
+backend_top_trumps/capybara-*.html
+backend_top_trumps/.rspec
 backend_top_trumps/log
 backend_top_trumps/tmp
 backend_top_trumps/db/*.sqlite3
@@ -8,7 +8,7 @@ backend_top_trumps/db/*.sqlite3-journal
 backend_top_trumps/public/system
 backend_top_trumps/coverage/
 backend_top_trumps/spec/tmp
-*.orig
+backend_top_trumps/*.orig
 rerun.txt
 pickle-email-*.html
 
@@ -21,17 +21,17 @@ config/master.key
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
-.env
+backend_top_trumps/.env
 
 ## Environment normalization:
-/.bundle
+backend_top_trumps/.bundle
 backend_top_trumps/vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
+backend_top_trumps/.rvmrc
 
 # if using bower-rails ignore default bower_components path bower.json files
 /vendor/assets/bower_components
@@ -39,7 +39,7 @@ backend_top_trumps/vendor/bundle
 bower.json
 
 # Ignore pow environment settings
-.powenv
+backend_top_trumps/.powenv
 
 # Ignore Byebug command history file.
 backend_top_trumps/.byebug_history
