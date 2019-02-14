@@ -46,7 +46,6 @@ class GamesController < ApplicationController
         
         5.times do 
             id = pool_ids.slice!(rand(0...pool_ids.length))
-            # byebug
             @random << (pool.find_by(id: id))
         end
 

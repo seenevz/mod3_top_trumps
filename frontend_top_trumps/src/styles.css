@@ -6,7 +6,7 @@ html {
     box-sizing: inherit;
   }
   
-  /* body {
+  body {
     background-image: url(https://ei.marketwatch.com/Multimedia/2016/11/11/Photos/ZH/MW-FA026_trump__20161111070915_ZH.jpg);
     background-repeat: no-repeat;
     background-size: 2000px 1024px;
@@ -16,7 +16,7 @@ html {
     left: 0px;
     top: 0px;
 
-  } */
+  }
   * {
     font-family: sans-serif;
   }
@@ -97,7 +97,7 @@ html {
 
 
 
-/* .rectangle{
+.rectangle {
 position: absolute;
 width: 232.91px;
 height: 148.62px;
@@ -107,9 +107,9 @@ margin: 0;
 
 background: #F0413B;
 transform: rotate(-18.47deg);
-} */
+}
 
-/* h4 {
+h4 {
   position: absolute;
   width: 196.14px;
   height: 108.28px;
@@ -144,4 +144,26 @@ color: #F0413B;
 
 transform: matrix(0.89, 0.37, -0.5, 0.92, 0, 0);
 transform: rotate(80deg)
-} */
+}  
+
+
+.wait {
+
+position: absolute;
+width: 200px;
+height: 400px;
+left: 399px;
+top: 519px;
+  
+background: #FFFFFF;
+border-radius: 30px;
+
+font-family: Abadi MT Condensed Extra Bold;
+font-style: normal;
+font-weight: bold;
+line-height: normal;
+font-size: 100px;
+
+color:black;
+
+}
