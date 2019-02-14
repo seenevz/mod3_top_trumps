@@ -9,12 +9,22 @@ const cardElDiv = document.querySelector('.card')
 const containerDiv = document.querySelector('.container')
 const formEL = document.querySelector('.add-player')
 
+//1. get request for cards
+const getCards = () => {
+    return fetch(cardsUrl)
+    .then(resp => resp.json())
+    .then(cardData => state.pOneCards = cardData)
+}
 
-// const getCards = () => {
-//     return fetch(cardsUrl)
-//     .then(resp => resp.json())
-//     .then(cardData => state.pOneCards = cardData)
-// }
+//2. send card back to server to start game
+const initGame = (card) => {
+    return fetch(`http://localhost:3000/games`, {
+        method: 'PATCH', 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({card: state.pOneCards[0].id})
+    })
+}
+
 
 // // const getplayer2Cards = () => {
 // //     return fetch(player2Url)
@@ -47,9 +57,10 @@ card = [{id: 1,
 ]
 
 state = {
-    pOneCards: [{id: 1,
+    pOneCards: [{
+        id: 1,
         name: "Theresa May",
-        description: "Chuck Norris's first movie was kill -9.",
+        description: "Chuck Norris's first program was kill -9.",
         url: "https://timedotcom.files.wordpress.com/2019/02/theresa-may-brexit.jpg",
         attribute_1: 87,
         attribute_2: 70,
@@ -118,7 +129,8 @@ state = {
     Player2: null, 
 }
 
-const player1Card = (card) => {
+// 6. render first player card and event listener for clicked attribute
+const renderFirstPlayerCard = (card) => {
   const player1Div = document.createElement('div')
   player1Div.className = 'cardOne'
   player1Div.innerHTML = `
@@ -136,17 +148,17 @@ const player1Card = (card) => {
   state.sCard = card
 }
 
-
+//7. It renders the second players card and passes the server the whole card object and the card attribute value.
 const selectAttributeAndRevealCardTwo = (event) => {
     // const chosenAttP1 = 
     const selectedAt = event.target.dataset.id
     state.sCardAtP1 = selectedAt
-    player2Card(card[1])
+    renderSecondPlayerCard(state.pTwoCards[0])
     sendCardAndAtToServer(state.sCard, selectedAt)
     whichOneWins()
 } 
 
-
+//9. the selected card and the chosen attribute are passed to the server
 const sendCardAndAtToServer = (sCard, selectedAt) => {
     console.log(sCard, selectedAt)
     return fetch('http://localhost:3000/games', {
@@ -208,7 +220,8 @@ const addCardWinner = (card) => {
     }
 }
 
-const player2Card = (card) => {
+//8. 
+const renderSecondPlayerCard = (card) => {
     const player2Div = document.createElement('div')
     player2Div.className = 'cardOne'
     player2Div.innerHTML = `
@@ -224,6 +237,7 @@ const player2Card = (card) => {
     containerDiv.append(player2Div)
   }
 
+//4 collect player name and send it to the database
   const collectUserName = (event) => {
     event.preventDefault()
     playerOne = formEL.name.value
@@ -231,20 +245,47 @@ const player2Card = (card) => {
     formEL.innerHTML = ""
     passUserNameToDB(playerOne)
 }
-
+//3 add Event listener to form for player name
+if(formEL){
 formEL.addEventListener('submit', collectUserName)
+}
 
+else {
+    renderFirstPlayerCard(state.pOneCards[0])
+}
+
+
+//5. send player to database and call for cards to render
 const passUserNameToDB = (playerOne) => {
         console.log(playerOne)
         return fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({userName: playerOne})
-        }).then(resp => resp.json())
+        }).then(() => getCardsAndRender())
+}
+
+//6. call for cards to render and render first player 1st card 
+const getCardsAndRender = () => {
+    getCards().then(() => renderFirstPlayerCard(state.pOneCards[0]))
 }
 
 
-// getCards()
+const renderForm = () => {
+if(state.pOneCards.length == 0 || state.pTwoCards.length == 0){
+
+formEL.innerHTML = `
+<form class="add-player" style="">
+<h3>Enter Player One Name</h3>
+<input required id='name-input' type="text" name="name" value="" placeholder="In Here..." class="input-text">
+<br>
+<input type="submit" name="submit" value="Hit me" class="submit">
+</form>
+`
+}
+
+}
+
 // player1Card(state.pOneCards[0])
-sendCardAndAtToServer(state.sCard, state.sCardAtP1)
+// sendCardAndAtToServer(state.sCard, state.sCardAtP1)
 // addCardWinner(card[1])
