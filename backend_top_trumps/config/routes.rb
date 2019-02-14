@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   resources :games, only: [:index, :show, :create]
 
   get 'random', to: 'games#random' 
-  get 'round', to: 'games#round_result'
+  get 'round', to: 'games#round'
+  get 'state', to: 'games#state'
+  patch 'state/update', to: 'games#update_state'
+  get 'winner', to: 'games#winner'
+
 end
