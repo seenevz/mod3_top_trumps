@@ -1,13 +1,13 @@
 *.rbc
 capybara-*.html
 .rspec
-/log
-/tmp
-/db/*.sqlite3
-/db/*.sqlite3-journal
-/public/system
-/coverage/
-/spec/tmp
+backend_top_trumps/log
+backend_top_trumps/tmp
+backend_top_trumps/db/*.sqlite3
+backend_top_trumps/db/*.sqlite3-journal
+backend_top_trumps/public/system
+backend_top_trumps/coverage/
+backend_top_trumps/spec/tmp
 *.orig
 rerun.txt
 pickle-email-*.html
@@ -17,7 +17,7 @@ config/initializers/secret_token.rb
 config/master.key
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
-# config/secrets.yml
+# backend_top_trumpsconfig/secrets.yml
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
@@ -25,7 +25,7 @@ config/master.key
 
 ## Environment normalization:
 /.bundle
-/vendor/bundle
+backend_top_trumps/vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
@@ -42,8 +42,8 @@ bower.json
 .powenv
 
 # Ignore Byebug command history file.
-.byebug_history
+backend_top_trumps/.byebug_history
 
 # Ignore node_modules
-node_modules/
+backend_top_trumps/node_modules/
 
