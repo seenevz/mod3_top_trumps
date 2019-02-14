@@ -1,0 +1,287 @@
+Started POST "/games" for 127.0.0.1 at 2019-02-13 15:15:22 +0000
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Kev/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:15:23 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:15:23 +0000
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:15:26 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"Kev", "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 400 Bad Request in 150ms (Views: 5.4ms | ActiveRecord: 8.1ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-13 15:19:13 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:19:13 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:19:13 +0000
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:19:17 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"Kev", "user"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 400 Bad Request in 6ms (Views: 2.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-13 15:20:31 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:20:31 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:20:31 +0000
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:20:34 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"Kun", "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 400 Bad Request in 4ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-13 15:20:34 +0000
+Processing by CardsController#index as */*
+  [1m[36mCard Load (26.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.47ms)
+Completed 200 OK in 56ms (Views: 21.4ms | ActiveRecord: 32.7ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-13 15:23:19 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:23:19 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:23:19 +0000
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:23:22 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"Kun", "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 400 Bad Request in 6ms (Views: 1.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-13 15:23:22 +0000
+Processing by CardsController#index as */*
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.51ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:24:32 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"Jun", "user"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 400 Bad Request in 5ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-13 15:24:32 +0000
+Processing by CardsController#index as */*
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.47ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:25:30 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"Mikey", "user"=>{}}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 400 Bad Request in 6ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-13 15:25:30 +0000
+Processing by CardsController#index as */*
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.87ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:26:48 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"kUn", "user"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 400 Bad Request in 5ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-13 15:26:48 +0000
+Processing by CardsController#index as */*
+  [1m[36mCard Load (0.9ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.96ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:42:05 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"kun", "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 400 Bad Request in 5ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-13 15:42:05 +0000
+Processing by CardsController#index as */*
+  [1m[36mCard Load (1.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.91ms)
+Completed 200 OK in 25ms (Views: 6.6ms | ActiveRecord: 18.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:43:09 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"Kun", "user"=>{}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 400 Bad Request in 5ms (Views: 0.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-13 15:43:09 +0000
+Processing by CardsController#index as */*
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.36ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:52:45 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"Kun", "user"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 400 Bad Request in 4ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-13 15:52:45 +0000
+Processing by CardsController#index as */*
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.38ms)
+Completed 200 OK in 26ms (Views: 3.8ms | ActiveRecord: 21.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-13 15:53:38 +0000
+Processing by UsersController#create as */*
+  Parameters: {"userName"=>"Kun", "user"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 400 Bad Request in 5ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cards" for 127.0.0.1 at 2019-02-13 15:53:38 +0000
+Processing by CardsController#index as */*
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.26ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-13 15:53:39 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:53:39 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 15:53:39 +0000
+Started POST "/games" for 127.0.0.1 at 2019-02-13 16:59:10 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 16:59:10 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 16:59:10 +0000
+Started POST "/games" for 127.0.0.1 at 2019-02-13 17:39:19 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:39:19 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:39:19 +0000
+Started POST "/games" for 127.0.0.1 at 2019-02-13 17:39:46 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:39:46 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:39:46 +0000
+Started POST "/games" for 127.0.0.1 at 2019-02-13 17:39:46 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:39:46 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:39:46 +0000
+Started POST "/games" for 127.0.0.1 at 2019-02-13 17:39:48 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:39:48 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:39:48 +0000
+Started POST "/games" for 127.0.0.1 at 2019-02-13 17:51:52 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:51:52 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-13 17:51:52 +0000
+Started POST "/games" for 127.0.0.1 at 2019-02-14 09:54:19 +0000
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Kev/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-14 09:54:20 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-14 09:54:20 +0000
+Started POST "/games" for 127.0.0.1 at 2019-02-14 12:23:46 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-14 12:23:46 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-14 12:23:46 +0000
+Started POST "/games" for 127.0.0.1 at 2019-02-14 12:25:18 +0000
+Started POST "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-14 12:25:18 +0000
+Failed to upgrade to WebSocket (REQUEST_METHOD: POST, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/game/s"[non-WebSocket] for 127.0.0.1 at 2019-02-14 12:25:18 +0000
+Started GET "/cards" for 127.0.0.1 at 2019-02-14 13:59:12 +0000
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (16.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.4ms)
+Completed 200 OK in 246ms (Views: 182.3ms | ActiveRecord: 41.6ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2019-02-14 13:59:13 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'

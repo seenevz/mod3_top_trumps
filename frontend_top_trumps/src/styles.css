@@ -7,7 +7,15 @@ html {
   }
   
   /* body {
-    background-image: url(https://cdn3.vectorstock.com/i/1000x1000/86/32/lined-or-ruled-paper-background-vector-15888632.jpg)
+    background-image: url(https://ei.marketwatch.com/Multimedia/2016/11/11/Photos/ZH/MW-FA026_trump__20161111070915_ZH.jpg);
+    background-repeat: no-repeat;
+    background-size: 2000px 1024px;
+    position: absolute;
+    width: 1440px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+
   } */
   * {
     font-family: sans-serif;
@@ -85,4 +93,55 @@ html {
     border: #331c70 solid 1px;
     color: #331c70;
   }
+
+
+
+
+/* .rectangle{
+position: absolute;
+width: 232.91px;
+height: 148.62px;
+left: 500px;
+top: 50px;
+margin: 0;
+
+background: #F0413B;
+transform: rotate(-18.47deg);
+} */
+
+/* h4 {
+  position: absolute;
+  width: 196.14px;
+  height: 108.28px;
+  left: 20px;
+  top: -150px;
   
+  font-family: Abadi MT Condensed Extra Bold;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 120px;
+  
+  color: #D7AB41;
+  
+  transform: rotate(2);
+}
+
+p {
+position: absolute;
+width: 153.72px;
+height: 150.54px;
+left: 700.17px;
+top: 220px;
+
+font-family: Abadi MT Condensed Extra Bold;
+font-style: normal;
+font-weight: bold;
+line-height: normal;
+font-size: 200px;
+
+color: #F0413B;
+
+transform: matrix(0.89, 0.37, -0.5, 0.92, 0, 0);
+transform: rotate(80deg)
+} */
