@@ -15,17 +15,28 @@ class GamesController < ApplicationController
     end
     
     def create
+        game = Game.find_or_create_by(id: params[:game_id])
+        byebug
         
-        player_one = User.find_or_create_by(name: params[:player_one_name]) 
-        player_two = User.find_or_create_by(name: params[:player_two_name])
-        
-        @game = Game.new(player_one: player_one, player_two: player_two)
-            if @game.save
-                render json: @game
-            else
-                render json: {error: "Can't create game"}
-            end
+        case params
+        when params[:player_one]
+            player_one = User.find_or_create_by(name: params[:player_one_name])
+            game.update(player_one: player_one) 
+        when params[:player_two]
+            player_two = User.find_or_create_by(name: params[:player_two_name])
+            game.update(player_two: player_two)
+        end
+
+        if game.player_one && game.player_two
+            render json: {game: game, round: round}
+        else
+            round = RoundState.create(game: game)
+            byebug
+            render json: round 
+        end
     end
+
+
 
 
 
@@ -34,7 +45,8 @@ class GamesController < ApplicationController
         pool_ids = pool.map{|x| x.id}
         
         5.times do 
-            id = pool_ids.slice!(rand(0..pool_ids.length))
+            id = pool_ids.slice!(rand(0...pool_ids.length))
+            # byebug
             @random << (pool.find_by(id: id))
         end
 
