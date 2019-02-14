@@ -15,10 +15,11 @@ class GamesController < ApplicationController
     end
     
     def create
-        player_one = User.find_or_create_by(name: params[:name])
-        player_two = User.find_or_create_by(name: params[:name])
         
-        @game = Game.new(player_one_id: player_one, player_two_id: player_two)
+        player_one = User.find_or_create_by(name: params[:player_one_name]) 
+        player_two = User.find_or_create_by(name: params[:player_two_name])
+        
+        @game = Game.new(player_one: player_one, player_two: player_two)
             if @game.save
                 render json: @game
             else
