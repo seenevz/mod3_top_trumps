@@ -36,15 +36,16 @@ const initGame = (card) => {
 // //     .then(cardData => state.pTwoCards = cardData)
 // // }
 
+
 state = {
-    pOneCards: [],
-    pTwoCards: [],
+    pOneCards: null,
+    pTwoCards: null,
     sCard: null,
     sCardAtP1: null,
     Player1: null,
     Player2: null,
     game: null,
-    round: 1,
+    round: 1
 }
 
 // 6. render first player card and event listener for clicked attribute
