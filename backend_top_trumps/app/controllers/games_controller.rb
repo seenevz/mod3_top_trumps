@@ -34,7 +34,7 @@ class GamesController < ApplicationController
         pool_ids = pool.map{|x| x.id}
         
         5.times do 
-            id = pool_ids.slice!(rand(0..pool_ids.length))
+            id = pool_ids.slice!(rand(0...pool_ids.length))
             @random << (pool.find_by(id: id))
         end
 

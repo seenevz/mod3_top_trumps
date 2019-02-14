@@ -1,8 +1,11 @@
-const cardsUrl = ('http://localhost:3000/cards')
-const usersUrl = ('http://localhost:3000/users')
-const gamersUrl = ('http://localhost:3000/games')
-const player1Url = ('http://localhost:3000/player/1')
-const player2Url = ('http://localhost:3000/player/2')
+const mainUrl = ('https://localhost/3000')
+const cardsUrl = (`${mainUrl}/random`)
+const usersUrl = (`${mainUrl}/users`)
+const gamersUrl = (`${mainUrl}/games`)
+const stateUrl = `${mainUrl}/state`
+const stateUpdateUrl = `${mainUrl}/state/update`
+const player1Url = (`${mainUrl}/player/1`)
+const player2Url = (`${mainUrl}/player/2`)
 
 
 const cardElDiv = document.querySelector('.card')
@@ -11,17 +14,18 @@ const formEL = document.querySelector('.add-player')
 
 //1. get request for cards
 const getCards = () => {
-    return fetch(cardsUrl)
+    return fetch(`http://localhost:3000/random`)
     .then(resp => resp.json())
     .then(cardData => state.pOneCards = cardData)
 }
 
 //2. send card back to server to start game
 const initGame = (card) => {
-    return fetch(`http://localhost:3000/games`, {
+    return fetch(gamersUrl, {
         method: 'PATCH', 
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({card: state.pOneCards[0].id})
+        body: JSON.stringify({p1_card_id: state.pOneCards[0].id,
+                                round_id: state.round})
     })
 }
 
@@ -32,101 +36,15 @@ const initGame = (card) => {
 // //     .then(cardData => state.pTwoCards = cardData)
 // // }
 
-
-card = [{id: 1,
-    name: "Theresa May",
-    description: "Chuck Norris's first program was kill -9.",
-    url: "https://timedotcom.files.wordpress.com/2019/02/theresa-may-brexit.jpg",
-    attribute_1: 87,
-    attribute_2: 70,
-    attribute_3: 95,
-    attribute_4: 91,
-    attribute_5: 6
-    },
-    {
-    id: 2,
-    name: "Donald Trump",
-    description: "Chuck Norris rewrote the Google search engine from scratch.",
-    url: "https://shawglobalnews.files.wordpress.com/2019/02/20508990.jpg",
-    attribute_1: 20,
-    attribute_2: 53,
-    attribute_3: 55,
-    attribute_4: 8,
-    attribute_5: 24
-    }
-]
-
 state = {
-    pOneCards: [{
-        id: 1,
-        name: "Theresa May",
-        description: "Chuck Norris's first program was kill -9.",
-        url: "https://timedotcom.files.wordpress.com/2019/02/theresa-may-brexit.jpg",
-        attribute_1: 87,
-        attribute_2: 70,
-        attribute_3: 95,
-        attribute_4: 91,
-        attribute_5: 6
-        },
-        {
-        id: 2,
-        name: "Donald Trump",
-        description: "Chuck Norris rewrote the Google search engine from scratch.",
-        url: "https://shawglobalnews.files.wordpress.com/2019/02/20508990.jpg",
-        attribute_1: 20,
-        attribute_2: 53,
-        attribute_3: 55,
-        attribute_4: 8,
-        attribute_5: 24
-        },
-        {
-        id: 3,
-        name: "Vladimir Putin",
-        description: "Project managers never ask Chuck Norris for estimations... ever.",
-        url: "https://images-na.ssl-images-amazon.com/images/I/61QgIYCeCvL._SX355_.jpg",
-        attribute_1: 52,
-        attribute_2: 86,
-        attribute_3: 28,
-        attribute_4: 14,
-        attribute_5: 5
-        }],
-    pTwoCards: [{
-        id: 4,
-        name: "Kim Jong Un",
-        description: "Chuck Norris doesn't need an OS.",
-        url: "https://static-news.moneycontrol.com/static-mcnews/2018/01/Kim-Jong-UN_North-Korea-770x433.jpg",
-        attribute_1: 39,
-        attribute_2: 26,
-        attribute_3: 79,
-        attribute_4: 48,
-        attribute_5: 53
-        },
-        {
-        id: 5,
-        name: "Marcelo Rebelo de Sousa",
-        description: "Chuck Norris' keyboard doesn't have a F1 key, the computer asks him for help.",
-        url: "http://portuguese-american-journal.com/wp-content/uploads/2016/03/123PRESIDENT.jpg",
-        attribute_1: 69,
-        attribute_2: 26,
-        attribute_3: 2,
-        attribute_4: 21,
-        attribute_5: 71
-        },
-        {
-        id: 6,
-        name: "Claude junker",
-        description: "Chuck Norris' beard is immutable.",
-        url: "https://guengl-panamapapers.eu/wp-content/uploads/2017/01/Jean-Claude-Juncker-012.jpg",
-        attribute_1: 16,
-        attribute_2: 67,
-        attribute_3: 58,
-        attribute_4: 10,
-        attribute_5: 8
-        }],
+    pOneCards: [],
+    pTwoCards: [],
     sCard: null,
     sCardAtP1: null,
     Player1: null,
-    Player2: null, 
+    Player2: null,
+    game: null,
+    round: 1,
 }
 
 // 6. render first player card and event listener for clicked attribute
@@ -240,29 +158,38 @@ const renderSecondPlayerCard = (card) => {
 //4 collect player name and send it to the database
   const collectUserName = (event) => {
     event.preventDefault()
-    playerOne = formEL.name.value
-    formEL.name.value = ""
-    formEL.innerHTML = ""
+    playerOne = formElement.name.value
+    formElement.name.value = ""
+    formElement.innerHTML = ""
     passUserNameToDB(playerOne)
-}
-//3 add Event listener to form for player name
-if(formEL){
-formEL.addEventListener('submit', collectUserName)
-}
-
-else {
-    renderFirstPlayerCard(state.pOneCards[0])
 }
 
 
 //5. send player to database and call for cards to render
-const passUserNameToDB = (playerOne) => {
-        console.log(playerOne)
-        return fetch('http://localhost:3000/users', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({userName: playerOne})
-        }).then(() => getCardsAndRender())
+// const passUserNameToDB = (playerOne) => {
+//         console.log(playerOne)
+//         return fetch(gamersUrl, {
+//             method: 'POST',
+//             headers: {'Content-Type': 'application/json'},
+//             body: JSON.stringify({player_one: playerOne})
+//         }).then(resp => console.log(resp.json())).then(() => waitingForOp())
+        
+// }
+
+const waitingForOp = () => {
+    const opponentEl = document.createElement('div')
+    opponentEl.className = 'wait'
+    opponentEl.innerHTML = `
+
+    <h3>Waiting For Opponent...</h3>
+    `
+    containerDiv.append(opponentEl)
+}
+
+// const interval = window.setInterval(isPlayerReady, 500)
+
+const isPlayerReady = () => {
+
 }
 
 //6. call for cards to render and render first player 1st card 
@@ -273,15 +200,16 @@ const getCardsAndRender = () => {
 
 const renderForm = () => {
 if(state.pOneCards.length == 0 || state.pTwoCards.length == 0){
-
-formEL.innerHTML = `
-<form class="add-player" style="">
+    formElement = document.createElement('form')
+formElement.class = 'add-player-form'
+formElement.innerHTML = `
 <h3>Enter Player One Name</h3>
 <input required id='name-input' type="text" name="name" value="" placeholder="In Here..." class="input-text">
 <br>
 <input type="submit" name="submit" value="Hit me" class="submit">
-</form>
 `
+formEL.append(formElement)
+formEL.addEventListener('submit', collectUserName)
 }
 
 }
@@ -289,3 +217,5 @@ formEL.innerHTML = `
 // player1Card(state.pOneCards[0])
 // sendCardAndAtToServer(state.sCard, state.sCardAtP1)
 // addCardWinner(card[1])
+
+waitingForOp()
