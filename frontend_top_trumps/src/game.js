@@ -1,8 +1,11 @@
-const cardsUrl = ('http://localhost:3000/cards')
-const usersUrl = ('http://localhost:3000/users')
-const gamersUrl = ('http://localhost:3000/games')
-const player1Url = ('http://localhost:3000/player/1')
-const player2Url = ('http://localhost:3000/player/2')
+const mainUrl = ('https://localhost/3000')
+const cardsUrl = (`${mainUrl}/random`)
+const usersUrl = (`${mainUrl}/users`)
+const gamersUrl = (`${mainUrl}/games`)
+const stateUrl = `${mainUrl}/state`
+const stateUpdateUrl = `${mainUrl}/state/update`
+const player1Url = (`${mainUrl}/player/1`)
+const player2Url = (`${mainUrl}/player/2`)
 
 
 const cardElDiv = document.querySelector('.card')
@@ -11,17 +14,18 @@ const formEL = document.querySelector('.add-player')
 
 //1. get request for cards
 const getCards = () => {
-    return fetch(cardsUrl)
+    return fetch(`http://localhost:3000/random`)
     .then(resp => resp.json())
     .then(cardData => state.pOneCards = cardData)
 }
 
 //2. send card back to server to start game
 const initGame = (card) => {
-    return fetch(`http://localhost:3000/games`, {
+    return fetch(gamersUrl, {
         method: 'PATCH', 
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({card: state.pOneCards[0].id})
+        body: JSON.stringify({p1_card_id: state.pOneCards[0].id,
+                                round_id: state.round})
     })
 }
 
@@ -39,7 +43,8 @@ state = {
     sCardAtP1: null,
     Player1: null,
     Player2: null,
-    game: null, 
+    game: null,
+    round: 1,
 }
 
 // 6. render first player card and event listener for clicked attribute
@@ -153,29 +158,38 @@ const renderSecondPlayerCard = (card) => {
 //4 collect player name and send it to the database
   const collectUserName = (event) => {
     event.preventDefault()
-    playerOne = formEL.name.value
-    formEL.name.value = ""
-    formEL.innerHTML = ""
+    playerOne = formElement.name.value
+    formElement.name.value = ""
+    formElement.innerHTML = ""
     passUserNameToDB(playerOne)
-}
-//3 add Event listener to form for player name
-if(formEL){
-formEL.addEventListener('submit', collectUserName)
-}
-
-else {
-    renderFirstPlayerCard(state.pOneCards[0])
 }
 
 
 //5. send player to database and call for cards to render
-const passUserNameToDB = (playerOne) => {
-        console.log(playerOne)
-        return fetch('http://localhost:3000/users', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({userName: playerOne})
-        }).then(() => getCardsAndRender())
+// const passUserNameToDB = (playerOne) => {
+//         console.log(playerOne)
+//         return fetch(gamersUrl, {
+//             method: 'POST',
+//             headers: {'Content-Type': 'application/json'},
+//             body: JSON.stringify({player_one: playerOne})
+//         }).then(resp => console.log(resp.json())).then(() => waitingForOp())
+        
+// }
+
+const waitingForOp = () => {
+    const opponentEl = document.createElement('div')
+    opponentEl.className = 'wait'
+    opponentEl.innerHTML = `
+
+    <h3>Waiting For Opponent...</h3>
+    `
+    containerDiv.append(opponentEl)
+}
+
+// const interval = window.setInterval(isPlayerReady, 500)
+
+const isPlayerReady = () => {
+
 }
 
 //6. call for cards to render and render first player 1st card 
@@ -186,15 +200,16 @@ const getCardsAndRender = () => {
 
 const renderForm = () => {
 if(state.pOneCards.length == 0 || state.pTwoCards.length == 0){
-
-formEL.innerHTML = `
-<form class="add-player" style="">
+    formElement = document.createElement('form')
+formElement.class = 'add-player-form'
+formElement.innerHTML = `
 <h3>Enter Player One Name</h3>
 <input required id='name-input' type="text" name="name" value="" placeholder="In Here..." class="input-text">
 <br>
 <input type="submit" name="submit" value="Hit me" class="submit">
-</form>
 `
+formEL.append(formElement)
+formEL.addEventListener('submit', collectUserName)
 }
 
 }
@@ -202,3 +217,5 @@ formEL.innerHTML = `
 // player1Card(state.pOneCards[0])
 // sendCardAndAtToServer(state.sCard, state.sCardAtP1)
 // addCardWinner(card[1])
+
+waitingForOp()
