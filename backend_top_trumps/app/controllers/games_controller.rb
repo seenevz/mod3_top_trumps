@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
     include ActionController::Live
 
-    before_action :find_round, only: [:state, :update_state, :round, :winner]
+    before_action :find_round, only: [:update_state, :round, :winner]
     before_action :find_player_one, :find_player_two, only: :winner
     before_action :find_game, only: [:show, :winner, :round]
 
@@ -15,22 +15,32 @@ class GamesController < ApplicationController
     end
     
     def create
-        game = Game.find_or_create_by(id: params[:game_id])
-        byebug
+        current_round = RoundState.last
+byebug
+        if current_round.p1_id && !current_round.game_id && !current_round.p2_id
+            user_two = User.find_or_create_by(name: params[:player_two_name])
+            current_round.p2_id = user_two.id 
+            current_round.save
+        else
+            round = RoundState.new 
         
-        case params
-        when params[:player_one]
-            player_one = User.find_or_create_by(name: params[:player_one_name])
-            game.update(player_one: player_one) 
-        when params[:player_two]
-            player_two = User.find_or_create_by(name: params[:player_two_name])
-            game.update(player_two: player_two)
+            user_one = User.find_or_create_by(name: params[:player_one_name])
+            round.p1_id = user_one.id
+            round.save
         end
 
-        if game.player_one && game.player_two
-            render json: {game: game, round: round}
+        if current_round && current_round.p1_id && current_round.p2_id && !current_round.game_id
+            player_one = User.find_by(id: current_round.p1_id)
+            player_two = User.find_by(id: current_round.p2_id)
+            game = Game.create(player_one: player_one, player_two: player_two)
+            current_round.game_id = game.id
+            byebug
+            current_round.save
+
+
+            render json: current_round
         else
-            round = RoundState.create(game: game)
+            
             byebug
             render json: round 
         end
@@ -53,7 +63,8 @@ class GamesController < ApplicationController
     end
 
     def state
-        render json: @round
+        round = RoundState.last
+        render json: round
     end
 
     def update_state

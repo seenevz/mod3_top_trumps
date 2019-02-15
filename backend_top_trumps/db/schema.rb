@@ -45,10 +45,9 @@ ActiveRecord::Schema.define(version: 2019_02_13_151949) do
     t.string "p2_cards_amount"
     t.string "attr_name"
     t.integer "next_turn_player_id"
-    t.bigint "game_id"
+    t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_round_states_on_game_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,5 +56,4 @@ ActiveRecord::Schema.define(version: 2019_02_13_151949) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "round_states", "games"
 end
