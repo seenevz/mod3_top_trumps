@@ -1,11 +1,13 @@
-const mainUrl = ('https://localhost/3000')
+const mainUrl = ('http://localhost:3000')
 const cardsUrl = (`${mainUrl}/random`)
 const usersUrl = (`${mainUrl}/users`)
 const gamersUrl = (`${mainUrl}/games`)
 const stateUrl = `${mainUrl}/state`
 const stateUpdateUrl = `${mainUrl}/state/update`
+const randomUrl = `${mainUrl}/random`
 const player1Url = (`${mainUrl}/player/1`)
 const player2Url = (`${mainUrl}/player/2`)
+let interval = null
 
 
 const cardElDiv = document.querySelector('.card')
@@ -14,7 +16,7 @@ const formEL = document.querySelector('.add-player')
 
 //1. get request for cards
 const getCards = () => {
-    return fetch(`http://localhost:3000/random`)
+    return fetch(randomUrl)
     .then(resp => resp.json())
     .then(cardData => state.pOneCards = cardData)
 }
@@ -42,8 +44,8 @@ state = {
     pTwoCards: null,
     sCard: null,
     sCardAtP1: null,
-    Player1: null,
-    Player2: null,
+    playerOne: null,
+    playerTwo: null,
     game: null,
     round: 1
 }
@@ -112,8 +114,12 @@ const displayWinnerCard = (card) => {
   containerDiv.append(winnerDiv)
 }
 
-const getWinnerCard = () => {
-    return fetch(`http://localhost:3000/specifyEndPoint`)
+const getWinnerCard = (attribute) => {
+    return fetch(`${gamersUrl}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({attr: `${attribute}`})
+    })
         .then(resp => resp.json())
         .then(card = displayWinnerCard(card))
 }
@@ -155,27 +161,54 @@ const renderSecondPlayerCard = (card) => {
     `
     containerDiv.append(player2Div)
   }
+// first check of state pre game
+
+const checkState = () => {
+    return fetch(stateUrl)
+        .then(resp => resp.json())
+        .then(jso => {
+            if (jso) {
+            state.playerOne = jso.p1_id
+            }
+        });
+};
 
 //4 collect player name and send it to the database
   const collectUserName = (event) => {
     event.preventDefault()
     playerOne = formElement.name.value
+    checkState()
+    .then(() => passUserNameToDB(playerOne)
+    )
     formElement.name.value = ""
     formElement.innerHTML = ""
-    passUserNameToDB(playerOne)
 }
 
 
 //5. send player to database and call for cards to render
-// const passUserNameToDB = (playerOne) => {
-//         console.log(playerOne)
-//         return fetch(gamersUrl, {
-//             method: 'POST',
-//             headers: {'Content-Type': 'application/json'},
-//             body: JSON.stringify({player_one: playerOne})
-//         }).then(resp => console.log(resp.json())).then(() => waitingForOp())
-        
-// }
+const passUserNameToDB = (player) => {
+        console.log(player)
+    if (state.playerOne) {
+            return fetch(gamersUrl, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({player_two_name: player})
+            }).then(resp => resp.json()).then((jso) => {
+                state.playerTwo = jso.p2_id
+                getCardsAndRender()
+            });
+    } else {
+        return fetch(gamersUrl, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({player_one_name: player})
+        }).then(resp => resp.json()).then((jso) => {
+            state.playerOne = jso.p1_id
+            waitingForOp()
+        });
+
+    }
+}
 
 const waitingForOp = () => {
     const opponentEl = document.createElement('div')
@@ -185,23 +218,44 @@ const waitingForOp = () => {
     <h3>Waiting For Opponent...</h3>
     `
     containerDiv.append(opponentEl)
+    pingServer();
 }
+const pingServer = () => {
+    interval = window.setInterval(isPlayerReady, 500);
+};
 
-// const interval = window.setInterval(isPlayerReady, 500)
+const stopPing = () => {
+    clearInterval(interval);
+};
 
 const isPlayerReady = () => {
-
-}
+        return fetch(stateUrl)
+            .then(resp => resp.json())
+            .then((jso) => {
+                // debugger
+                if (jso.p2_id) {
+                state.playerTwo = jso.p2_id
+                state.game = jso.game_id
+                state.round = jso.round_id
+                }
+            })
+            .then(() => {
+                if (state.game) {
+                    stopPing();
+                    getCardsAndRender();
+                };
+            }); 
+};
 
 //6. call for cards to render and render first player 1st card 
 const getCardsAndRender = () => {
     getCards().then(() => renderFirstPlayerCard(state.pOneCards[0]))
 }
 
+// const checkState
 
 const renderForm = () => {
-if(state.pOneCards.length == 0 || state.pTwoCards.length == 0){
-    formElement = document.createElement('form')
+formElement = document.createElement('form')
 formElement.class = 'add-player-form'
 formElement.innerHTML = `
 <h3>Enter Player One Name</h3>
@@ -211,12 +265,16 @@ formElement.innerHTML = `
 `
 formEL.append(formElement)
 formEL.addEventListener('submit', collectUserName)
-}
 
 }
 
 // player1Card(state.pOneCards[0])
 // sendCardAndAtToServer(state.sCard, state.sCardAtP1)
 // addCardWinner(card[1])
+const init = () => {
+    renderForm()
+    
+}
+init()
 
-waitingForOp()
+// waitingForOp()

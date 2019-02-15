@@ -9,7 +9,7 @@ class CreateRoundStates < ActiveRecord::Migration[5.2]
       t.string :p2_cards_amount
       t.string :attr_name
       t.integer :next_turn_player_id
-      t.references :game, foreign_key: true
+      t.integer :game_id
 
       t.timestamps
     end
