@@ -1,4 +1,4 @@
-const mainUrl = ('http://localhost:3000')
+const mainUrl = ('http://10.218.6.186:3000')
 const cardsUrl = (`${mainUrl}/random`)
 const usersUrl = (`${mainUrl}/users`)
 const gamersUrl = (`${mainUrl}/games`)
@@ -52,7 +52,9 @@ state = {
     playerOne: null,
     playerTwo: null,
     game: null,
-    round: 1
+    round: 1,
+    turn: null,
+    winnerCardId: null
 }
 
 // 6. render first player card and event listener for clicked attribute
@@ -66,44 +68,50 @@ const renderFirstPlayerCard = (card) => {
     player1Div.innerHTML = `
   <img src='${card.url}'</img>
   <h3>${card.name}</h3>
-    <p>Ridiculousness: ${card.attribute_1} <button data-id="attribute_1">Select</button></p>
-    <p>Cup Size: ${card.attribute_2} <button data-id="attribute_2">Select</button></p>
-    <p>Dancing: ${card.attribute_3} <button data-id="attribute_3">Select</button></p>
-    <p>HairStyle: ${card.attribute_4} <button data-id="attribute_4">Select</button></p>
-    <p>Start Nuclear War: ${card.attribute_5} <button data-id="attribute_5">Select</button></p>
+    <p>Ridiculousness: ${card.attribute_1} ${state.turn == true ? '<button data-id="attribute_1">Select</button>' : ''} </p>
+    <p>Cup Size: ${card.attribute_2} ${state.turn == true ? '<button data-id="attribute_2">Select</button>' : ''} </p>
+    <p>Dancing: ${card.attribute_3} ${state.turn == true ? '<button data-id="attribute_3">Select</button>' : ''} </p>
+    <p>HairStyle: ${card.attribute_4} ${state.turn == true ? '<button data-id="attribute_4">Select</button>' : ''} </p>
+    <p>Start Nuclear War: ${card.attribute_5} ${state.turn == true ? '<button data-id="attribute_5">Select</button>' : ''} </p>
     `
   containerDiv.append(player1Div)
   containerDiv.append(cardTwoDiv)
-  player1Div.addEventListener("click", selectAttributeAndRevealCardTwo)
+  player1Div.addEventListener("click", sendAttributeToServer)
   state.sCard = card
+  if (state.turn === false) {
+      waitForResponse()
+  }
+}
+// wait for response
+const waitForResponse = () => {
+    interval = window.setInterval(checkForChanges, 500)
+}
+
+const checkForChanges = () => {
+    return fetch(stateUrl)
+        .then(resp => resp.json())
+        .then(jso => {if (jso.winner_card_id) {
+            clearInterval(interval)
+            state.winnerCardId = jso.winner_card_id
+        }})
 }
 
 //7. It renders the second players card and passes the server the whole card object and the card attribute value.
-const selectAttributeAndRevealCardTwo = (event) => {
+const sendAttributeToServer = (event) => {
     // const chosenAttP1 = 
     const selectedAt = event.target.dataset.id
     state.sCardAtP1 = selectedAt
-    renderSecondPlayerCard(state.pTwoCards[0])
     sendCardAndAtToServer(state.sCard, selectedAt)
-    whichOneWins()
 } 
 
 //9. the selected card and the chosen attribute are passed to the server
 const sendCardAndAtToServer = (sCard, selectedAt) => {
     console.log(sCard, selectedAt)
-    return fetch('http://localhost:3000/games', {
-        method: 'POST',
+    return fetch(stateUpdateUrl, {
+        method: 'PATCH',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({selectedCard: sCard, selectedAttribute: selectedAt})
+        body: JSON.stringify({selectedCard: sCard.id, attr_name: selectedAt, round_id: state.round})
     }).then(resp => resp.json())
-}
-
-
-const whichOneWins = () => {
-    // console.log(state.sCardAtP1)
-    // vsPlayerOne = cards2[0].attributes.find(attribute => attribute.sCardAtP1)
-    // console.log(vsPlayerOne)
-
 }
 
 const displayWinnerCard = (card) => {
@@ -207,6 +215,9 @@ const passUserNameToDB = (player) => {
                 body: JSON.stringify({player_two_name: player})
             }).then(resp => resp.json()).then((jso) => {
                 state.playerTwo = jso.p2_id
+                state.game = jso.game_id
+                state.turn = !jso.turn
+                state.round = jso.id
                 getCardsAndRender()
             });
     } else {
@@ -216,6 +227,7 @@ const passUserNameToDB = (player) => {
             body: JSON.stringify({player_one_name: player})
         }).then(resp => resp.json()).then((jso) => {
             state.playerOne = jso.p1_id
+            state.round = jso.id
             waitingForOp()
         });
 
@@ -248,7 +260,8 @@ const isPlayerReady = () => {
                 if (jso.p2_id) {
                 state.playerTwo = jso.p2_id
                 state.game = jso.game_id
-                state.round = jso.round_id
+                state.round = jso.id
+                state.turn = jso.turn
                 }
             })
             .then(() => {
@@ -267,11 +280,10 @@ const getCardsAndRender = () => {
 // const checkState
 
 const renderForm = () => {
-formElement = document.createElement('form')
 formElement.class = 'add-player-form'
 formElement.innerHTML = `
 <h3>Enter Your Name Loser</h3>
-<input required id='name-input' type="text" name="name" value="" placeholder="In here dumb ass..." class="input-text">
+<input required id='name-input' type="text" name="name" value="" placeholder="In here dufus..." class="input-text">
 <br><br>
 <input type="submit" name="submit" value="Hit me to play" class="submit">
 `
@@ -279,7 +291,7 @@ formEL.append(formElement)
 formEL.addEventListener('submit', collectUserName)
 }
 
-renderForm()
+// renderForm()
 
 
 
