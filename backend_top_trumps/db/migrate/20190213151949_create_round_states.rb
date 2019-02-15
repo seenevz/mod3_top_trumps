@@ -8,7 +8,8 @@ class CreateRoundStates < ActiveRecord::Migration[5.2]
       t.string :p1_cards_amount
       t.string :p2_cards_amount
       t.string :attr_name
-      t.integer :next_turn_player_id
+      t.boolean :turn
+      t.integer :winner_card_id
       t.integer :game_id
 
       t.timestamps

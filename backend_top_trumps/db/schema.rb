@@ -44,7 +44,8 @@ ActiveRecord::Schema.define(version: 2019_02_13_151949) do
     t.string "p1_cards_amount"
     t.string "p2_cards_amount"
     t.string "attr_name"
-    t.integer "next_turn_player_id"
+    t.boolean "turn"
+    t.integer "winner_card_id"
     t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

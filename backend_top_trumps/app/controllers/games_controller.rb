@@ -16,10 +16,11 @@ class GamesController < ApplicationController
     
     def create
         current_round = RoundState.last
-byebug
-        if current_round.p1_id && !current_round.game_id && !current_round.p2_id
+# byebug
+        if current_round && current_round.p1_id && !current_round.game_id && !current_round.p2_id
             user_two = User.find_or_create_by(name: params[:player_two_name])
             current_round.p2_id = user_two.id 
+            
             current_round.save
         else
             round = RoundState.new 
@@ -34,14 +35,15 @@ byebug
             player_two = User.find_by(id: current_round.p2_id)
             game = Game.create(player_one: player_one, player_two: player_two)
             current_round.game_id = game.id
-            byebug
+            (rand < 0.5) ? current_round.turn = true : current_round.turn = false 
+            # byebug
             current_round.save
 
 
             render json: current_round
         else
             
-            byebug
+            # byebug
             render json: round 
         end
     end
@@ -79,7 +81,7 @@ byebug
 
     def round
         find_game
-        
+        # byebug
         if @round.attr_name
             #find out whos the card winner
             # byebug         
@@ -89,7 +91,7 @@ byebug
             loser_card.id == @round.p1_card_id ? new_round.next_turn_player_id = @game.player_one_id : new_round.next_turn_player_id = @game.player_two_id
                
             if new_round.save
-                byebug
+                # byebug
                 render json: {loserCard: loser_card, newRound: new_round}
             else
                 render json: {error: "Can't create turn"}
@@ -101,7 +103,7 @@ byebug
 
     def winner
         winner_pl = @game.winner(@round.p1_cards_amount, @round.p2_cards_amount)
-        byebug
+        # byebug
 
         if winner_pl.in? [true, false]
             case winner_pl
@@ -129,7 +131,7 @@ byebug
 
     def find_game
         # byebug
-        @game = Game.find_by(id: @round.game)
+        @game = Game.find_by(id: @round.game_id)
     end
 
     def find_round
