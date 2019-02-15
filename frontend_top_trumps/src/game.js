@@ -77,6 +77,7 @@ const renderFirstPlayerCard = (card) => {
 const waitForResponse = () => {
     interval = window.setInterval(checkForChanges, 500)
 }
+
 const checkForChanges = () => {
     return fetch(stateUrl)
         .then(resp => resp.json())
@@ -101,6 +102,7 @@ const sendCardAndAtToServer = (sCard, selectedAt) => {
         body: JSON.stringify({selectedCard: sCard.id, attr_name: selectedAt, round_id: state.round})
     }).then(resp => resp.json())
 }
+
 const displayWinnerCard = (card) => {
     const winnerDiv = document.createElement('div')
     cardTwoDiv.className = ""
@@ -255,14 +257,14 @@ const renderForm = () => {
 formElement.class = 'add-player-form'
 formElement.innerHTML = `
 <h3>Enter Your Name Loser</h3>
-<input required id='name-input' type="text" name="name" value="" placeholder="In here dumb ass..." class="input-text">
+<input required id='name-input' type="text" name="name" value="" placeholder="In here dufus..." class="input-text">
 <br><br>
 <input type="submit" name="submit" value="Hit me to play" class="submit">
 `
 formEL.append(formElement)
 formEL.addEventListener('submit', collectUserName)
 }
-// renderForm()
+
 // player1Card(state.pOneCards[0])
 // sendCardAndAtToServer(state.sCard, state.sCardAtP1)
 // addCardWinner(card[1])
