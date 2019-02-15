@@ -11,6 +11,11 @@ const player2Url = (`${mainUrl}/player/2`)
 const cardElDiv = document.querySelector('.card')
 const containerDiv = document.querySelector('.container')
 const formEL = document.querySelector('.add-player')
+const formElement = document.createElement('form')
+const opponentEl = document.createElement('div')
+const cardTwoEL = document.querySelector('cardTwo')
+const cardTwoDiv = document.createElement('div')
+const player1Div = document.createElement('div')
 
 //1. get request for cards
 const getCards = () => {
@@ -50,19 +55,23 @@ state = {
 
 // 6. render first player card and event listener for clicked attribute
 const renderFirstPlayerCard = (card) => {
-  const player1Div = document.createElement('div')
-  player1Div.className = 'cardOne'
-  player1Div.innerHTML = `
+    cardTwoDiv.className = 'cardTwo'
+    cardTwoDiv.innerHTML = `
+    <h3> ??? </h3>`
+    opponentEl.className = ''
+    opponentEl.innerHTML = ''
+    player1Div.className = 'cardOne'
+    player1Div.innerHTML = `
   <img src='${card.url}'</img>
   <h3>${card.name}</h3>
-  <p>${card.description}</p>
-    <p>attribute: ${card.attribute_1} <button data-id="attribute_1">Select</button></p>
-    <p>attribute: ${card.attribute_2} <button data-id="attribute_2">Select</button></p>
-    <p>attribute: ${card.attribute_3} <button data-id="attribute_3">Select</button></p>
-    <p>attribute: ${card.attribute_4} <button data-id="attribute_4">Select</button></p>
-    <p>attribute: ${card.attribute_5} <button data-id="attribute_5">Select</button></p>
+    <p>Ridiculousness: ${card.attribute_1} <button data-id="attribute_1">Select</button></p>
+    <p>Cup Size: ${card.attribute_2} <button data-id="attribute_2">Select</button></p>
+    <p>Dancing: ${card.attribute_3} <button data-id="attribute_3">Select</button></p>
+    <p>HairStyle: ${card.attribute_4} <button data-id="attribute_4">Select</button></p>
+    <p>Start Nuclear War: ${card.attribute_5} <button data-id="attribute_5">Select</button></p>
     `
   containerDiv.append(player1Div)
+  containerDiv.append(cardTwoDiv)
   player1Div.addEventListener("click", selectAttributeAndRevealCardTwo)
   state.sCard = card
 }
@@ -96,18 +105,21 @@ const whichOneWins = () => {
 }
 
 const displayWinnerCard = (card) => {
-    containerDiv.innerHTML = ''
+
     const winnerDiv = document.createElement('div')
-    winnerDiv.className = 'cardOne'
+    cardTwoDiv.className = ""
+    cardTwoDiv.innerHTML = ""
+    player1Div.innerHTML = ""
+    player1Div.className = ""
+    winnerDiv.className = 'winnerCard'
     winnerDiv.innerHTML = `
     <img src='${card.url}'</img>
     <h3>${card.name}</h3>
-    <p>${card.description}<p>
-    <p data-id=${card.attribute_1}><strong>attribute:</strong> ${card.attribute_1}</p>
-    <p data-id=${card.attribute_2}><strong>attribute:</strong> ${card.attribute_2}</p>
-    <p data-id=${card.attribute_3}><strong>attribute:</strong> ${card.attribute_3}</p>
-    <p data-id=${card.attribute_4}><strong>attribute:</strong> ${card.attribute_4}</p>
-    <p data-id=${card.attribute_5}><strong>attribute:</strong> ${card.attribute_5}</p>
+    <p data-id=${card.attribute_1}><strong>Ridiculousness:</strong> ${card.attribute_1}</p>
+    <p data-id=${card.attribute_2}><strong>Cup Size:</strong> ${card.attribute_2}</p>
+    <p data-id=${card.attribute_3}><strong>Dancing:</strong> ${card.attribute_3}</p>
+    <p data-id=${card.attribute_4}><strong>HairStyle:</strong> ${card.attribute_4}</p>
+    <p data-id=${card.attribute_5}><strong>Start Nuclear War:</strong> ${card.attribute_5}</p>
   `
   containerDiv.append(winnerDiv)
 }
@@ -160,8 +172,8 @@ const renderSecondPlayerCard = (card) => {
   const collectUserName = (event) => {
     event.preventDefault()
     playerOne = formElement.name.value
-    formElement.name.value = ""
-    formElement.innerHTML = ""
+    formElement.name.value = ''
+    formElement.innerHTML = ''
     passUserNameToDB(playerOne)
 }
 
@@ -178,7 +190,7 @@ const renderSecondPlayerCard = (card) => {
 // }
 
 const waitingForOp = () => {
-    const opponentEl = document.createElement('div')
+    formEL.className = ""
     opponentEl.className = 'wait'
     opponentEl.innerHTML = `
 
@@ -201,22 +213,26 @@ const getCardsAndRender = () => {
 
 const renderForm = () => {
 if(state.pOneCards.length == 0 || state.pTwoCards.length == 0){
-    formElement = document.createElement('form')
 formElement.class = 'add-player-form'
 formElement.innerHTML = `
-<h3>Enter Player One Name</h3>
-<input required id='name-input' type="text" name="name" value="" placeholder="In Here..." class="input-text">
-<br>
-<input type="submit" name="submit" value="Hit me" class="submit">
+<h3>Enter Your Name Loser</h3>
+<input required id='name-input' type="text" name="name" value="" placeholder="In here dumb ass..." class="input-text">
+<br><br>
+<input type="submit" name="submit" value="Hit me to play" class="submit">
 `
 formEL.append(formElement)
 formEL.addEventListener('submit', collectUserName)
 }
-
 }
+
+renderForm()
+
+
 
 // player1Card(state.pOneCards[0])
 // sendCardAndAtToServer(state.sCard, state.sCardAtP1)
 // addCardWinner(card[1])
 
-waitingForOp()
+
+
+
