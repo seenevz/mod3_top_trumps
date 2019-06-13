@@ -14,6 +14,10 @@ class Game < ApplicationRecord
         end
     end
 
+    def test
+        GameChannel.broadcast_to(@user, {message: 'Im broadcasting'})
+    end
+    
     def winner (pl_one_cards, pl_two_cards)
 
         if pl_two_cards == '0'

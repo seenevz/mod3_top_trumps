@@ -1,4 +1,4 @@
-const mainUrl = ('http://10.218.6.186:3000')
+const mainUrl = ('http://localhost:3000')
 const cardsUrl = (`${mainUrl}/random`)
 const usersUrl = (`${mainUrl}/users`)
 const gamersUrl = (`${mainUrl}/games`)
@@ -8,6 +8,7 @@ const randomUrl = `${mainUrl}/random`
 const player1Url = (`${mainUrl}/player/1`)
 const player2Url = (`${mainUrl}/player/2`)
 let interval = null
+
 const cardElDiv = document.querySelector('.card')
 const containerDiv = document.querySelector('.container')
 const formEL = document.querySelector('.add-player')
@@ -16,12 +17,22 @@ const opponentEl = document.createElement('div')
 const cardTwoEL = document.querySelector('cardTwo')
 const cardTwoDiv = document.createElement('div')
 const player1Div = document.createElement('div')
+
+//action cable websocket var definition
+
+const cable = ActionCable.createConsumer('ws://localhost:3000/acgame')
+ 
+cable.subscriptions.create({channel: 'GameChannel', id: 1}, {
+    received: (data) => console.log(data)
+});
+
 //1. get request for cards
 const getCards = () => {
     return fetch(randomUrl)
     .then(resp => resp.json())
     .then(cardData => state.pOneCards = cardData)
-}
+};
+
 //2. send card back to server to start game
 const initGame = (card) => {
     return fetch(gamersUrl, {
@@ -30,7 +41,8 @@ const initGame = (card) => {
         body: JSON.stringify({p1_card_id: state.pOneCards[0].id,
                                 round_id: state.round})
     })
-}
+};
+
 // // const getplayer2Cards = () => {
 // //     return fetch(player2Url)
 // //     .then(resp => resp.json())
