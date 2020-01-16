@@ -1,0 +1,5 @@
+- A take on a childhood classic game - Top Trumps. This is a slimed down version, but just as fun. 
+- Built with Vanilla Javascript and Dom Manipulation
+- Ruby Backend
+- Websockets
+- HTML CSS
