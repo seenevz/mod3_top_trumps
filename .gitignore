@@ -46,4 +46,5 @@ backend_top_trumps/.byebug_history
 
 # Ignore node_modules
 backend_top_trumps/node_modules/
+frontend_top_trumps/node_modules
 
