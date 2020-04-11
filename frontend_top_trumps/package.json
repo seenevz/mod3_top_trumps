@@ -1,35 +1,34 @@
 {
-   "name": "top-trumps",
-   "version": "1.0.0",
-   "description": "funky game of top trumps",
-   "private": true,
-   "main": "index.js",
-   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "webpack-dev-server --open --config webpack.dev.js"
-   },
-   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/seenevz/mod3_top_trumps.git"
-   },
-   "keywords": [
-      "javascript",
-      "websockets"
-   ],
-   "author": "",
-   "license": "ISC",
-   "bugs": {
-      "url": "https://github.com/seenevz/mod3_top_trumps/issues"
-   },
-   "homepage": "https://github.com/seenevz/mod3_top_trumps#readme",
-   "devDependencies": {
-      "clean-webpack-plugin": "^3.0.0",
-      "css-loader": "^3.5.2",
-      "html-webpack-plugin": "^3.2.0",
-      "style-loader": "^0.23.1",
-      "webpack": "^4.42.1",
-      "webpack-cli": "^3.3.11",
-      "webpack-dev-server": "^3.10.3",
-      "webpack-merge": "^4.2.2"
-   }
+  "name": "top-trumps",
+  "version": "1.0.0",
+  "description": "A take on a childhood classic game - Top Trumps. This is a slimed down version, but just as fun.",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "css-loader": "^3.5.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.2.0",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seenevz/mod3_top_trumps.git"
+  },
+  "keywords": [
+    "javascript",
+    "websockets",
+    "webpack"
+  ],
+  "author": "Sergio Neves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seenevz/mod3_top_trumps/issues"
+  },
+  "homepage": "https://github.com/seenevz/mod3_top_trumps#readme"
 }
