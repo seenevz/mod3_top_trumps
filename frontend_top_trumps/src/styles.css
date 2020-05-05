@@ -1,251 +1,245 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
-html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
-  
-  body {
-    background-image: url(https://ei.marketwatch.com/Multimedia/2016/11/11/Photos/ZH/MW-FA026_trump__20161111070915_ZH.jpg);
-    background-repeat: no-repeat;
-    background-size: 2000px 1024px;
-    position: absolute;
-    width: 1440px;
-    height: 1024px;
-    left: 0px;
-    top: 0px;
-    overflow-x: hidden; 
-    overflow-y: hidden; 
-  }
-  * {
-    font-family: sans-serif;
-  }
+* {
+  font-family: sans-serif;
+}
 
+html,
+body {
+  margin: 0;
+}
 
-  .container {
-    max-width: 400px;
-    margin: 1em auto;
-  }
-  .beta {
-    font-size: .5em;
-    color: rebeccapurple;
-  }
-  ul {
-    margin: 0 auto;
-    padding: 0;
-  }
-  
-  input, button {
-    position: relative;
-    background-color: #D7AB41;
-    border-radius: 5px;
-    height: 1.2rem;
-    width: max-content;
-    color: whitesmoke;
-    font-size: 16px;
-    justify-self: center;
-    font-family: sans-serif;
-    margin: 3px;
-  }
+body {
+  background-image: url(./MW-FA026_trump__20161111070915_ZH.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+}
 
-  button:hover {
-    background-color: #F0413B;
-    border: #D7AB41 solid 1px;
-    color: #D7AB41;
-  }
-  
-  .done {
-    text-decoration: line-through;
-    opacity: 0.5;
-  }
-  
-  .add-toy-form {
-    width: 80%
-  }
+.header-container {
+  max-width: 550px;
+  margin: 0auto;
+}
 
-  .input-text {
-    border-radius: 5px;
-    height: 2rem;
-    width: 60%;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin: 3px;
-  }
+.beta {
+  font-size: 0.5em;
+  color: rebeccapurple;
+}
 
-  .submit {
-    position: relative;
-    background-color: #D7AB41;
-    border-radius: 5px;
-    height: 2.5rem;
-    width: max-content;
-    color: whitesmoke;
-    font-size: 16px;
-    justify-self: center;
-    font-family: sans-serif;
-    margin: 3px;
-  }
-  
-  .submit:hover {
-    background-color: #F0413B;
-    border: #D7AB41 solid 1px;
-    color: #D7AB41;
-  }
+ul {
+  margin: 0 auto;
+  padding: 0;
+}
 
+input,
+button {
+  position: relative;
+  background-color: #d7ab41;
+  border-radius: 5px;
+  height: 1.2rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 16px;
+  justify-self: center;
+  font-family: sans-serif;
+  margin: 3px;
+}
+
+button:hover {
+  background-color: #f0413b;
+  border: #d7ab41 solid 1px;
+  color: #d7ab41;
+}
+
+.done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.add-toy-form {
+  width: 80%;
+}
+
+.input-text {
+  border-radius: 5px;
+  height: 2rem;
+  width: 60%;
+  font-size: 18px;
+  font-family: sans-serif;
+  margin: 3px;
+}
+
+.submit {
+  position: relative;
+  background-color: #d7ab41;
+  border-radius: 5px;
+  height: 2.5rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 16px;
+  justify-self: center;
+  font-family: sans-serif;
+  margin: 3px;
+}
+
+.submit:hover {
+  background-color: #f0413b;
+  border: #d7ab41 solid 1px;
+  color: #d7ab41;
+}
 
 .rectangle {
-position: absolute;
-width: 232.91px;
-height: 148.62px;
-left: 500px;
-top: 50px;
-margin: 0;
+  /* position: absolute;
+  width: 232.91px;
+  height: 148.62px;
+  left: 500px;
+  top: 50px;
+  margin: 0; */
 
-background: #F0413B;
-transform: rotate(-18.47deg);
+  background: #f0413b;
+  transform: rotate(-18.47deg);
 }
 
 .top {
-  position: absolute;
+  /* position: absolute;
   width: 196.14px;
   height: 108.28px;
   left: 20px;
-  top: -150px;
-  
+  top: -150px; */
+
   font-family: Abadi MT Condensed Extra Bold;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
   font-size: 120px;
-  
-  color: #D7AB41;
-  
+
+  color: #d7ab41;
+
   transform: rotate(2);
 }
 
 .s {
-position: absolute;
-width: 153.72px;
-height: 150.54px;
-left: 700.17px;
-top: 220px;
+  /* position: absolute;
+  width: 153.72px;
+  height: 150.54px;
+  left: 700.17px;
+  top: 220px; */
 
-font-family: Abadi MT Condensed Extra Bold;
-font-style: normal;
-font-weight: bold;
-line-height: normal;
-font-size: 200px;
+  font-family: Abadi MT Condensed Extra Bold;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 200px;
 
-color: #F0413B;
+  color: #f0413b;
 
-transform: matrix(0.89, 0.37, -0.5, 0.92, 0, 0);
-transform: rotate(80deg)
-}  
-
-
-.wait {
-
-position: absolute;
-width: 800px;
-height: 350px;
-left: 600px;
-top: 500px;
-  
-background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), rgba(240, 65, 59, 0.75);
-border-radius: 30px;
-text-align: center;
-
-font-family: Abadi MT Condensed Extra Bold;
-font-style: normal;
-font-weight: bold;
-line-height: normal;
-font-size: 80px;
-
-color: rgb(233, 167, 14);
+  transform: matrix(0.89, 0.37, -0.5, 0.92, 0, 0);
+  transform: rotate(80deg);
 }
 
-.cardOne{
+.wait {
+  /* position: absolute;
+  width: 800px;
+  height: 350px;
+  left: 600px;
+  top: 500px; */
 
-position: relative;
-width: 300px;
-height: 500px;
-left: 0px;
-top: 400px;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    rgba(240, 65, 59, 0.75);
+  border-radius: 30px;
+  text-align: center;
 
-background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), rgba(240, 65, 59, 0.75);
-border: 4px solid #F0413B;
-border-radius: 10px;
-text-align: center;
-color: rgb(68, 63, 63);
-text-decoration-style: unset
+  font-family: Abadi MT Condensed Extra Bold;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 80px;
+
+  color: rgb(233, 167, 14);
+}
+
+.cardOne {
+  /* position: relative;
+  width: 300px;
+  height: 500px;
+  left: 0px;
+  top: 400px; */
+
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    rgba(240, 65, 59, 0.75);
+  border: 4px solid #f0413b;
+  border-radius: 10px;
+  text-align: center;
+  color: rgb(68, 63, 63);
+  text-decoration-style: unset;
 }
 
 .cardOne img {
   position: relative;
   max-width: 100%;
-  max-height: 40%; 
+  max-height: 40%;
 }
 
-.cardTwo{
-
-  position: absolute;
+.cardTwo {
+  /* position: absolute;
   width: 300px;
   height: 500px;
   left: 1100px;
-  top: 415px;
-  
-  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), rgba(240, 65, 59, 0.75);
-  border: 4px solid #F0413B;
+  top: 415px; */
+
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    rgba(240, 65, 59, 0.75);
+  border: 4px solid #f0413b;
   border-radius: 10px;
   text-align: center;
   font-size: 80px;
   color: rgb(233, 167, 14);
-  }
-  
+}
+
 /* .cardTwo img {
     position: relative;
     max-width: 100%;
     max-height: 40%; 
   } */
 
+.add-player {
+  /* position: relative;
+  width: 500px;
+  height: 180px;
+  left: 750px;
+  top: 500px; */
 
-
-.add-player{
-position: relative;
-width: 500px;
-height: 180px;
-left: 750px;
-top: 500px;
-
-background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), rgba(240, 65, 59, 0.75);
-border: 4px solid #D7AB41;
-border-radius: 10px;
-text-align: center;
-color: #F0413B;
-
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    rgba(240, 65, 59, 0.75);
+  border: 4px solid #d7ab41;
+  border-radius: 10px;
+  text-align: center;
+  color: #f0413b;
 }
 
-
-
 .winnerCard {
-
-position: relative;
-width: 300px;
-height: 500px;
-left: 350px;
-top: 400px;
-background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), rgba(240, 65, 59, 0.75);
-border: 4px solid #F0413B;
-border-radius: 10px;
-text-align: center;
-color: rgb(68, 63, 63);
-text-decoration-style: unset;
-
+  position: relative;
+  width: 300px;
+  height: 500px;
+  left: 350px;
+  top: 400px;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    rgba(240, 65, 59, 0.75);
+  border: 4px solid #f0413b;
+  border-radius: 10px;
+  text-align: center;
+  color: rgb(68, 63, 63);
+  text-decoration-style: unset;
 }
 
 .winnerCard img {
   position: relative;
   max-width: 100%;
-  max-height: 40%; 
+  max-height: 40%;
 }
